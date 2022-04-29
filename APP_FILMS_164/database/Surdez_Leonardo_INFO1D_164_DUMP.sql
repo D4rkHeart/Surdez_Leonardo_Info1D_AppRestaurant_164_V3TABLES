@@ -23,7 +23,7 @@ create table t_restaurants (
     id_restaurant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     restaurant_nom varchar(60) NOT NULL,
     restaurant_type ENUM("Fine Dining","Casual Dining","Fast Casual","Ghost Restaurant","Fast Food", "Food Truck","Cafe","Buffet", "Cafeteria","Coffee House") NOT NULL,
-    FK_pays int(11) NOT NULL,
+    FK_pays int(11) NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

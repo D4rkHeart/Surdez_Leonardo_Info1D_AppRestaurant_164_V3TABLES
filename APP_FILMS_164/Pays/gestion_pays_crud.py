@@ -247,7 +247,7 @@ def Pays_delete_wtf():
                 valeur_delete_dictionnaire = {"value_id_pays": id_Pays_delete}
                 print("valeur_delete_dictionnaire ", valeur_delete_dictionnaire)
 
-                str_sql_delete_films_genre = """DELETE FROM t_genre_film WHERE fk_genre = %(value_id_pays)s"""
+                str_sql_delete_films_genre = """ UPDATE t_restaurants SET FK_pays = null WHERE FK_pays = %(value_id_pays)s"""
                 str_sql_delete_idgenre = """DELETE FROM t_pays WHERE id_pays = %(value_id_pays)s"""
                 # Manière brutale d'effacer d'abord la "fk_genre", même si elle n'existe pas dans la "t_genre_film"
                 # Ensuite on peut effacer le genre vu qu'il n'est plus "lié" (INNODB) dans la "t_genre_film"
@@ -268,7 +268,7 @@ def Pays_delete_wtf():
 
             # Requête qui affiche tous les films_genres qui ont le genre que l'utilisateur veut effacer
             str_sql_genres_films_delete = """SELECT id_restaurant, restaurant_nom FROM t_restaurants 
-                                            WHERE fk_pays = %(value_id_pays)s"""
+                                            WHERE FK_pays = %(value_id_pays)s"""
 
             with DBconnection() as mydb_conn:
                 mydb_conn.execute(str_sql_genres_films_delete, valeur_select_dictionnaire)
