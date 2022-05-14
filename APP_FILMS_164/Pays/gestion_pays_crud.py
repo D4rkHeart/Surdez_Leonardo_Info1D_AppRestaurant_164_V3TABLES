@@ -1,5 +1,5 @@
 """Gestion des "routes" FLASK et des données pour les Pays.
-Fichier : gestion_pays_crud.py
+Fichier : gestion_restaurants_crud.py
 Auteur : OM 2021.03.16
 """
 from pathlib import Path
@@ -85,7 +85,7 @@ def Pays_afficher(order_by, id_pays_sel):
     
     But : Ajouter un genre pour un film
     
-    Remarque :  Dans le champ "name_genre_html" du formulaire "Pays/Pays_ajouter.html",
+    Remarque :  Dans le champ "name_genre_html" du formulaire "Pays/Restaurants_ajouter.html",
                 le contrôle de la saisie s'effectue ici en Python.
                 On transforme la saisie en minuscules.
                 On ne doit pas accepter des valeurs vides, des valeurs avec des chiffres,
@@ -132,7 +132,7 @@ def Pays_ajouter_wtf():
     
     Paramètres : sans
     
-    But : Editer(update) un genre qui a été sélectionné dans le formulaire "Pays_afficher.html"
+    But : Editer(update) un genre qui a été sélectionné dans le formulaire "Restaurants_afficher.html"
     
     Remarque :  Dans le champ "nom_Pays_update_wtf" du formulaire "Pays/Pays_update_wtf.html",
                 le contrôle de la saisie s'effectue ici en Python.
@@ -209,9 +209,9 @@ def Pays_update_wtf():
     
     Paramètres : sans
     
-    But : Effacer(delete) un genre qui a été sélectionné dans le formulaire "Pays_afficher.html"
+    But : Effacer(delete) un genre qui a été sélectionné dans le formulaire "Restaurants_afficher.html"
     
-    Remarque :  Dans le champ "nom_Pays_delete_wtf" du formulaire "Pays/Pays_delete.html",
+    Remarque :  Dans le champ "nom_Pays_delete_wtf" du formulaire "Pays/Restaurants_delete.html",
                 le contrôle de la saisie est désactivée. On doit simplement cliquer sur "DELETE"
 """
 
@@ -234,7 +234,7 @@ def Pays_delete_wtf():
 
             if form_delete.submit_btn_conf_del.data:
                 # Récupère les données afin d'afficher à nouveau
-                # le formulaire "Pays/Pays_delete.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
+                # le formulaire "Pays/Restaurants_delete.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
                 data_restaurant_attribue_Pays_delete = session['data_restaurant_attribue_Pays_delete']
                 print("data_restaurant_attribue_Pays_delete ", data_restaurant_attribue_Pays_delete)
 
@@ -277,7 +277,7 @@ def Pays_delete_wtf():
                 print("data_restaurant_attribue_Pays_delete...", data_restaurant_attribue_Pays_delete)
 
                 # Nécessaire pour mémoriser les données afin d'afficher à nouveau
-                # le formulaire "Pays/Pays_delete.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
+                # le formulaire "Pays/Restaurants_delete.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
                 session['data_restaurant_attribue_Pays_delete'] = data_restaurant_attribue_Pays_delete
 
                 # Opération sur la BD pour récupérer "id_pays" et "nom" de la "t_genre"
@@ -290,10 +290,10 @@ def Pays_delete_wtf():
                 print("data_nom_genre ", data_nom_genre, " type ", type(data_nom_genre), " genre ",
                       data_nom_genre["nom"])
 
-            # Afficher la valeur sélectionnée dans le champ du formulaire "Pays_delete.html"
+            # Afficher la valeur sélectionnée dans le champ du formulaire "Restaurants_delete.html"
             form_delete.nom_Pays_delete_wtf.data = data_nom_genre["nom"]
 
-            # Le bouton pour l'action "DELETE" dans le form. "Pays_delete.html" est caché.
+            # Le bouton pour l'action "DELETE" dans le form. "Restaurants_delete.html" est caché.
             btn_submit_del = False
 
     except Exception as Exception_Pays_delete_wtf:
@@ -303,5 +303,5 @@ def Pays_delete_wtf():
 
     return render_template("Pays/Pays_delete.html",
                            form_delete=form_delete,
-                           btn_submit_del=btn_submit_del,
+                           btn_submit_del=btn_submit_del,   
                            data_restaurant_associes=data_restaurant_attribue_Pays_delete)

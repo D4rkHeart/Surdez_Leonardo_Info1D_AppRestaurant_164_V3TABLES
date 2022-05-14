@@ -55,7 +55,7 @@ def film_add_wtf():
                                             f"{film_add_wtf.__name__} ; "
                                             f"{Exception_genres_ajouter_wtf}")
 
-    return render_template("films/film_add_wtf.html", form_add_film=form_add_film)
+    return render_template("OldCrud/films/film_add_wtf.html", form_add_film=form_add_film)
 
 
 """Editer(update) un film qui a été sélectionné dans le formulaire "films_genres_afficher.html"
@@ -66,7 +66,7 @@ Test : exemple: cliquer sur le menu "Films/Genres" puis cliquer sur le bouton "E
 
 Paramètres : sans
 
-But : Editer(update) un genre qui a été sélectionné dans le formulaire "Pays_afficher.html"
+But : Editer(update) un genre qui a été sélectionné dans le formulaire "Restaurants_afficher.html"
 
 Remarque :  Dans le champ "nom_film_update_wtf" du formulaire "films/films_update_wtf.html",
             le contrôle de la saisie s'effectue ici en Python.
@@ -140,7 +140,7 @@ def film_update_wtf():
                                      f"{film_update_wtf.__name__} ; "
                                      f"{Exception_film_update_wtf}")
 
-    return render_template("films/film_update_wtf.html", form_update_film=form_update_film)
+    return render_template("OldCrud/films/film_update_wtf.html", form_update_film=form_update_film)
 
 
 """Effacer(delete) un film qui a été sélectionné dans le formulaire "films_genres_afficher.html"
@@ -224,7 +224,7 @@ def film_delete_wtf():
                                      f"{film_delete_wtf.__name__} ; "
                                      f"{Exception_film_delete_wtf}")
 
-    return render_template("films/film_delete_wtf.html",
+    return render_template("OldCrud/films/film_delete_wtf.html",
                            form_delete_film=form_delete_film,
                            btn_submit_del=btn_submit_del,
                            data_film_del=data_film_delete

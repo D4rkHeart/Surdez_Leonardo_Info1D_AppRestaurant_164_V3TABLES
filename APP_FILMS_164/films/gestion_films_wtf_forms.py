@@ -13,7 +13,7 @@ from wtforms.widgets import TextArea
 
 class FormWTFAddFilm(FlaskForm):
     """
-        Dans le formulaire "Pays_ajouter.html" on impose que le champ soit rempli.
+        Dans le formulaire "Restaurants_ajouter.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_film_regexp = ""

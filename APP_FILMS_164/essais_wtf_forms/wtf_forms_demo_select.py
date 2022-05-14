@@ -1,5 +1,5 @@
 """
-    Fichier : gestion_pays_forms.py
+    Fichier : gestion_restaurants_forms.py
     Auteur : OM 2021.03.22
     Gestion des formulaires avec WTF
 

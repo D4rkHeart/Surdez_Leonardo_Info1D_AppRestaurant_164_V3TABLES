@@ -38,7 +38,7 @@
 <div class="container">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="{{ url_for('mapageprincipale') }}">MOD 164 OM EPSIC</a>
+			<a class="navbar-brand" href="{{ url_for('mapageprincipale') }}">Lunchgry</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -47,6 +47,10 @@
 					<li class="nav-item">
 						<!--		Afficher la liste des Pays dans l'ordre (ASC) et tous les Pays (0)-->
 						<a class="nav-link" href="{{ url_for('Pays_afficher', order_by='ASC', id_pays_sel=0) }}">Pays</a>
+					</li>
+                    <li class="nav-item">
+						<!--		Afficher la liste des Restaurants dans l'ordre (ASC) et tous les Restaurants (0)-->
+						<a class="nav-link" href="{{ url_for('Restaurants_afficher', order_by='ASC', id_restaurant_sel=0) }}">Restaurants</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navdropdownfilms" role="button"

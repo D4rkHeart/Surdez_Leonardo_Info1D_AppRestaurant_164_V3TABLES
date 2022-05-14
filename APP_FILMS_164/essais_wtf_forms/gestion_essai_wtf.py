@@ -28,4 +28,4 @@ def mon_premier_wtform():
         return redirect('/homepage')
     else:
         flash(f"il se passe un truc dans le ELSE du petit mon_premier_wtform")
-    return render_template('zzz_essais_om_104/essai_form_login.html', title='Mon joli premier WTF', form=form)
+    return render_template('OldCrud/zzz_essais_om_104/essai_form_login.html', title='Mon joli premier WTF', form=form)

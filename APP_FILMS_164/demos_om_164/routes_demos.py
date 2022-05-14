@@ -90,4 +90,4 @@ def personnes_taille_dict():
                         f"Le nom : {nom_personne} n'est pas une valeur contenue dans le dictionnaire, "
                         f"pour comprendre, il faut modifier la valeur à la ligne 66 du fichier 'routes_demos.py'")
 
-    return render_template("zzz_essais_om_104/exception_raise_custom_om_104.html")
+    return render_template("OldCrud/zzz_essais_om_104/exception_raise_custom_om_104.html")

@@ -1,5 +1,5 @@
 """
-    Fichier : gestion_pays_crud.py
+    Fichier : gestion_restaurants_crud.py
     Auteur : OM 2021.03.16
     Gestions des "routes" FLASK et des données pour les Pays.
 """
@@ -24,7 +24,7 @@ from APP_FILMS_164.essais_wtf_forms.wtf_forms_demo_select import DemoFormSelectW
     
     Paramètres : sans
     
-    But : Effacer(delete) un genre qui a été sélectionné dans le formulaire "Pays_afficher.html"
+    But : Effacer(delete) un genre qui a été sélectionné dans le formulaire "Restaurants_afficher.html"
     
     Remarque :  Dans le champ "nom_Pays_delete_wtf" du formulaire "Pays/Pays_delete_wtf.html",
                 le contrôle de la saisie est désactivée. On doit simplement cliquer sur "DELETE"
@@ -96,7 +96,7 @@ def demo_select_wtf():
         flash(f"__KeyError dans wtf_forms_demo_select : {sys.exc_info()[0]} {sys.exc_info()[1]} {sys.exc_info()[2]}",
               "danger")
 
-    return render_template("zzz_essais_om_104/demo_form_select_wtf.html",
+    return render_template("OldCrud/zzz_essais_om_104/demo_form_select_wtf.html",
                            form=form_demo,
                            genre_selectionne=genre_selectionne,
                            data_genres_drop_down=data_genres)
@@ -110,4 +110,4 @@ def demo_select_dropdown_bootstrap():
         print("choix_list_drop_down ", choix_list_drop_down)
         for x in choix_list_drop_down:
             print("x", x)
-    return render_template("zzz_essais_om_104/essai_form_result_dropdown.html")
+    return render_template("OldCrud/zzz_essais_om_104/essai_form_result_dropdown.html")
