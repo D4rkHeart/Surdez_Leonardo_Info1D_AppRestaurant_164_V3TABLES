@@ -21,10 +21,6 @@
                             Date de modification
                         </th>
                         <th class="align-middle">
-
-                        </th>
-                        <th class="align-middle">
-
                         </th>
                     </tr>
                 </thead>
@@ -43,13 +39,13 @@
 							{{ row.updated_at }}
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-primary" href="{{ url_for('Pays_ajouter_wtf') }}" role="button">Ajouter</a>
+							<a class="btn btn-primary" href="{{ url_for('pays_ajouter') }}" role="button">Ajouter</a>
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-warning" href="{{ url_for('Pays_update_wtf', id_pays_btn_edit_html=row.id_pays) }}" role="button">Edit</a>
+							<a class="btn btn-warning" href="{{ url_for('pays_update', id_pays_btn_edit_html=row.id_pays) }}" role="button">Edit</a>
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-danger" href="{{ url_for('Pays_delete_wtf', id_pays_btn_delete_html=row.id_pays) }}" role="button">Delete</a>
+							<a class="btn btn-danger" href="{{ url_for('pays_delete', id_pays_btn_delete_html=row.id_pays) }}" role="button">Delete</a>
 						</td>
 					</tr>
 				</tbody>
@@ -60,7 +56,7 @@
 							Aucun pays.
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ url_for('Pays_ajouter_wtf') }}" role="button">Ajouter</a>
+							<a class="btn btn-primary" href="{{ url_for('pays_ajouter') }}" role="button">Ajouter</a>
 						</td>
 					</tr>
 				</tbody>

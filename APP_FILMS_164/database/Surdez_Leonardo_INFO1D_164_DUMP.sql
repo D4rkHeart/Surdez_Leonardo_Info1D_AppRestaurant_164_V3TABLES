@@ -22,7 +22,7 @@ create table t_plats (
 create table t_restaurants (
     id_restaurant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     restaurant_nom varchar(60) NOT NULL,
-    restaurant_type ENUM("Fine Dining","Casual Dining","Fast Casual","Ghost Restaurant","Fast Food", "Food Truck","Cafe","Buffet", "Cafeteria","Coffee House") NOT NULL,
+    restaurant_type varchar(60) NOT NULL,
     FK_pays int(11) NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -146,3 +146,33 @@ INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud
 INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Verrine gourmande du jour', 'dessert', '0');
 INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('ella’s cheesecake', 'dessert', '0');
 
+-- Insert into table de liaison(plat-particularité)
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('1', '1', '1');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('2', '1', '3');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('3', '1', '4');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('4', '1', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('5', '2', '1');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('6', '2', '3');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('7', '2', '4');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('8', '2', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('9', '3', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('10', '4', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('11', '5', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('12', '6', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('13', '7', '4');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('14', '7', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('15', '8', '2');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('16', '8', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('17', '9', '4');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('18', '9', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('19', '10', '4');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('20', '10', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('21', '11', '2');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('22', '11', '3');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('23', '11', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('24', '12', '2');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('25', '12', '3');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('26', '12', '5');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('27', '13', '2');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('28', '13', '3');
+INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('29', '13', '5');

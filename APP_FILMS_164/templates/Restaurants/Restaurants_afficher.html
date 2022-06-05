@@ -46,13 +46,13 @@
 							{{ row.updated_at }}
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-primary" href="{{ url_for('Pays_ajouter_wtf') }}" role="button">Ajouter</a>
+							<a class="btn btn-primary" href="{{ url_for('restaurants_ajouter') }}" role="button">Ajouter</a>
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-warning" href="{{ url_for('Pays_update_wtf', id_pays_btn_edit_html=row.id_pays) }}" role="button">Edit</a>
+							<a class="btn btn-warning" href="{{ url_for('restaurants_update', id_restaurants_btn_edit_html=row.id_restaurant) }}" role="button">Edit</a>
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-danger" href="{{ url_for('Pays_delete_wtf', id_pays_btn_delete_html=row.id_pays) }}" role="button">Delete</a>
+							<a class="btn btn-danger" href="{{ url_for('restaurants_delete', id_restaurants_btn_delete_html=row.id_restaurant) }}" role="button">Delete</a>
 						</td>
 					</tr>
 				</tbody>
@@ -60,10 +60,10 @@
 				<tbody>
 					<tr>
 						<td>
-							Aucun pays.
+							Aucun restaurants.
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ url_for('Pays_ajouter_wtf') }}" role="button">Ajouter</a>
+							<a class="btn btn-primary" href="{{ url_for('restaurants_ajouter') }}" role="button">Ajouter</a>
 						</td>
 					</tr>
 				</tbody>

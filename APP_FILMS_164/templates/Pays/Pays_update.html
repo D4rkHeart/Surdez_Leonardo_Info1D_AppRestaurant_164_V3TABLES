@@ -5,23 +5,23 @@
 	<div class="row">
 		<div class="col-md-12">
 			<p>
-				Editer un Pays
+				Éditer un Pays
 			</p>
 			<form action="" method="POST" novalidate>
 				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
 				{{ form_update.hidden_tag() }}
 				<div class="form-group">
 					<p>
-						{{ form_update.nom_Pays_update_wtf.label }}<br>
-						{{ form_update.nom_Pays_update_wtf(size=32) }}<br>
-						{% for error in form_update.nom_Pays_update_wtf.errors %}
+						{{ form_update.nom_pays_update.label }}<br>
+						{{ form_update.nom_pays_update(size=32) }}<br>
+						{% for error in form_update.nom_pays_update.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
-						{{ form_update.date_genre_wtf_essai.label }}<br>
-						{{ form_update.date_genre_wtf_essai(size=32) }}<br>
-						{% for error in form_update.date_genre_wtf_essai.errors %}
+						{{ form_update.date_pays_update.label}}<br>
+						{{ form_update.date_pays_update(size=32) }}<br>
+						{% for error in form_update.date_pays_update.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>

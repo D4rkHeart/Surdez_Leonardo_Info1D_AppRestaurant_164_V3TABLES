@@ -16,7 +16,7 @@ class FormAjouterParticularite(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_genre_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
-    nom_genre_wtf = StringField("Clavioter le genre ", validators=[Length(min=2, max=20, message="min 2 max 20"),
+    nom_genre_wtf = StringField("Veuillez insérer ", validators=[Length(min=2, max=20, message="min 2 max 20"),
                                                                    Regexp(nom_genre_regexp,
                                                                           message="Pas de chiffres, de caractères "
                                                                                   "spéciaux, "
@@ -32,7 +32,7 @@ class FormUpdateParticularite(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_Particularite_update_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
-    nom_Particularite_update_wtf = StringField("Clavioter le genre ", validators=[Length(min=2, max=20, message="min 2 max 20"),
+    nom_Particularite_update_wtf = StringField("Veuillez insérer ", validators=[Length(min=2, max=20, message="min 2 max 20"),
                                                                           Regexp(nom_Particularite_update_regexp,
                                                                                  message="Pas de chiffres, de "
                                                                                          "caractères "

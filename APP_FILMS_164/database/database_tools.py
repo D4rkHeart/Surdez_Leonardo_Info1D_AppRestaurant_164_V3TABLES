@@ -151,7 +151,7 @@ class ToolsBd:
 
             except AttributeError as erreur_attr:
                 print(f"Mauvais paramètres dans (.env) "
-                      f"{erreur_attr.args[0]}, "
+                      f"{erreur_attr.args[0]}, "    
                       f"{erreur_attr}")
                 raise
             except pymysql.OperationalError as erreur_connection:

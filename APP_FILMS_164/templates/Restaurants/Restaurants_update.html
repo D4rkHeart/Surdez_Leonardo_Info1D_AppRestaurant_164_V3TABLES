@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %} Éditer un restaurant {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Éditer un restaurant
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form_update.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form_update.nom_restaurants_update.label }}<br>
+						{{ form_update.nom_restaurants_update(size=32) }}<br>
+						{% for error in form_update.nom_restaurants_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.type_restaurants_update.label }}<br>
+						{{ form_update.type_restaurants_update(size=32) }}<br>
+						{% for error in form_update.type_restaurants_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.date_restaurants_update.label }}<br>
+						{{ form_update.date_restaurants_update(size=32) }}<br>
+						{% for error in form_update.date_restaurants_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form_update.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

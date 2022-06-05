@@ -1,7 +1,5 @@
 """
     Fichier : gestion_restaurants_forms.py
-    Auteur : OM 2021.03.22
-    Gestion des formulaires avec WTF
 """
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField
@@ -10,29 +8,29 @@ from wtforms.validators import Length, InputRequired, DataRequired
 from wtforms.validators import Regexp
 
 
-class FormWTFAjouterPays(FlaskForm):
+class FormAjouterPays(FlaskForm):
     """
-        Dans le formulaire "Restaurants_ajouter.html" on impose que le champ soit rempli.
+        Dans le formulaire "Pays_ajouter.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-    nom_genre_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
-    nom_genre_wtf = StringField("Clavioter le genre ", validators=[Length(min=2, max=20, message="min 2 max 20"),
-                                                                   Regexp(nom_genre_regexp,
-                                                                          message="Pas de chiffres, de caractères "
-                                                                                  "spéciaux, "
-                                                                                  "d'espace à double, de double "
-                                                                                  "apostrophe, de double trait union")
-                                                                   ])
-    submit = SubmitField("Enregistrer genre")
+    nom_pays_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
+    nom_pays_ajouter = StringField("Veuillez insérer un pays ", validators=[Length(min=2, max=20, message="min 2 max 20"),
+                                                                    Regexp(nom_pays_regexp,
+                                                                           message="Pas de chiffres, de caractères "
+                                                                                   "spéciaux, "
+                                                                                   "d'espace à double, de double "
+                                                                                   "apostrophe, de double trait union")
+                                                                    ])
+    submit = SubmitField("Enregistrer un pays")
 
 
-class FormWTFUpdatePays(FlaskForm):
+class FormUpdatePays(FlaskForm):
     """
-        Dans le formulaire "Pays_update_wtf.html" on impose que le champ soit rempli.
+        Dans le formulaire "pays_update.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_Pays_update_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
-    nom_Pays_update_wtf = StringField("Clavioter le genre ", validators=[Length(min=2, max=20, message="min 2 max 20"),
+    nom_pays_update = StringField("Veuillez insérer votre modification ", validators=[Length(min=2, max=20, message="min 2 max 20"),
                                                                           Regexp(nom_Pays_update_regexp,
                                                                                  message="Pas de chiffres, de "
                                                                                          "caractères "
@@ -41,21 +39,21 @@ class FormWTFUpdatePays(FlaskForm):
                                                                                          "apostrophe, de double trait "
                                                                                          "union")
                                                                           ])
-    date_genre_wtf_essai = DateField("Essai date", validators=[InputRequired("Date obligatoire"),
+    date_pays_update = DateField("Essai date", validators=[InputRequired("Date obligatoire"),
                                                                DataRequired("Date non valide")])
     submit = SubmitField("Update genre")
 
 
-class FormWTFDeletePays(FlaskForm):
+class FormDeletePays(FlaskForm):
     """
-        Dans le formulaire "Pays_delete_wtf.html"
+        Dans le formulaire "pays_delete.html"
 
-        nom_Pays_delete_wtf : Champ qui reçoit la valeur du genre, lecture seule. (readonly=true)
+        nom_pays_delete : Champ qui reçoit la valeur du genre, lecture seule. (readonly=true)
         submit_btn_del : Bouton d'effacement "DEFINITIF".
         submit_btn_conf_del : Bouton de confirmation pour effacer un "genre".
         submit_btn_annuler : Bouton qui permet d'afficher la table "t_genre".
     """
-    nom_Pays_delete_wtf = StringField("Effacer ce genre")
-    submit_btn_del = SubmitField("Effacer genre")
-    submit_btn_conf_del = SubmitField("Etes-vous sur d'effacer ?")
+    nom_pays_delete = StringField("Effacer ce pays")
+    submit_btn_del = SubmitField("Effacer ce pays")
+    submit_btn_conf_del = SubmitField("Êtes-vous sur de vouloir l'effacer ?")
     submit_btn_annuler = SubmitField("Annuler")
