@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %} Editer un plat {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Éditer un plat
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form_update.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form_update.nom_plats_update.label }}<br>
+						{{ form_update.nom_plats_update(size=32) }}<br>
+						{% for error in form_update.nom_plats_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.type_plats_update.label }}<br>
+						{{ form_update.type_plats_update(size=32) }}<br>
+						{% for error in form_update.type_plats_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.chaleur_plats_update.label }}<br>
+						{{ form_update.chaleur_plats_update(size=32) }}<br>
+						{% for error in form_update.chaleur_plats_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.date_plats_update.label }}<br>
+						{{ form_update.date_plats_update(size=32) }}<br>
+						{% for error in form_update.date_plats_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form_update.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

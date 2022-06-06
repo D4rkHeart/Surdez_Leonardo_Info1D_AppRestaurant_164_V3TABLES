@@ -52,6 +52,18 @@
 						<!--		Afficher la liste des Restaurants dans l'ordre (ASC) et tous les Restaurants (0)-->
 						<a class="nav-link" href="{{ url_for('restaurants_afficher', order_by='ASC', id_restaurant_sel=0) }}">Restaurants</a>
 					</li>
+                    <li class="nav-item">
+						<!--		Afficher la liste des Restaurants dans l'ordre (ASC) et tous les Restaurants (0)-->
+						<a class="nav-link" href="{{ url_for('plats_afficher', order_by='ASC', id_plat_sel=0) }}">Plats</a>
+					</li>
+                    <li class="nav-item">
+						<!--		Afficher la liste des Restaurants dans l'ordre (ASC) et tous les Restaurants (0)-->
+						<a class="nav-link" href="{{ url_for('ingredients_afficher', order_by='ASC', id_ingredient_sel=0) }}">Ingredients</a>
+					</li>
+                    <li class="nav-item">
+						<!--		Afficher la liste des Restaurants dans l'ordre (ASC) et tous les Restaurants (0)-->
+						<a class="nav-link" href="{{ url_for('particularites_afficher', order_by='ASC', id_particularite_sel=0) }}">Particularités</a>
+					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navdropdownfilms" role="button"
 						   data-bs-toggle="dropdown" aria-expanded="false">

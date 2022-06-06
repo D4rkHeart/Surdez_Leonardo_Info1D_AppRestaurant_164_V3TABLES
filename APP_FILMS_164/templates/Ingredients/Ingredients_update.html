@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %} Editer un ingrédient {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Éditer un ingrédient
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form_update.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form_update.nom_ingredients_update.label }}<br>
+						{{ form_update.nom_ingredients_update(size=32) }}<br>
+						{% for error in form_update.nom_ingredients_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.type_ingredients_update.label }}<br>
+						{{ form_update.type_ingredients_update(size=32) }}<br>
+						{% for error in form_update.type_ingredients_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.sucre_ingredients_update.label }}<br>
+						{{ form_update.sucre_ingredients_update(size=32) }}<br>
+						{% for error in form_update.sucre_ingredients_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.bio_ingredients_update.label }}<br>
+						{{ form_update.bio_ingredients_update(size=32) }}<br>
+						{% for error in form_update.bio_ingredients_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.pays_ingredients_update.label }}<br>
+						{{ form_update.pays_ingredients_update(size=32) }}<br>
+						{% for error in form_update.pays_ingredients_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form_update.date_ingredients_update.label }}<br>
+						{{ form_update.date_ingredients_update(size=32) }}<br>
+						{% for error in form_update.date_ingredients_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form_update.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

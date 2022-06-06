@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %} Ajouter un ingredient {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Ajouter un nouveau ingredient
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form.nom_ingredients_ajouter.label }}<br>
+						{{ form.nom_ingredients_ajouter(size=32) }}<br>
+						{% for error in form.nom_ingredients_ajouter.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form.type_ingredients_ajouter.label }}<br>
+						{{ form.type_ingredients_ajouter(size=32) }}<br>
+						{% for error in form.type_ingredients_ajouter.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form.sucre_ingredients_ajouter.label }}<br>
+						{{ form.sucre_ingredients_ajouter(size=32) }}<br>
+						{% for error in form.sucre_ingredients_ajouter.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form.bio_ingredients_ajouter.label }}<br>
+						{{ form.bio_ingredients_ajouter(size=32) }}<br>
+						{% for error in form.bio_ingredients_ajouter.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+                <div class="form-group">
+					<p>
+						{{ form.pays_ingredients_ajouter.label }}<br>
+						{{ form.pays_ingredients_ajouter(size=32) }}<br>
+						{% for error in form.pays_ingredients_ajouter.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

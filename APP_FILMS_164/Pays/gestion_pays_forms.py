@@ -10,7 +10,7 @@ from wtforms.validators import Regexp
 
 class FormAjouterPays(FlaskForm):
     """
-        Dans le formulaire "Pays_ajouter.html" on impose que le champ soit rempli.
+        Dans le formulaire "Ingredients_ajouter.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_pays_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"

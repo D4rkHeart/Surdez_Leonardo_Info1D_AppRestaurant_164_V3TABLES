@@ -13,8 +13,8 @@ USE restaurant_App;
 create table t_plats (
     id_plat int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     plat_nom varchar(60) NOT NULL,
-    plat_type ENUM("entree","plat","dessert") NOT NULL,
-    plat_est_chaud boolean NOT NULL,
+    plat_type varchar(10) NOT NULL,
+    plat_est_chaud varchar(5) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -37,7 +37,7 @@ create table t_particularites (
 
 create table t_prix (
     id_prix int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    prix_type ENUM("Étudiant/Apprenti","Doctorant","Visiteur","Campus","Général") NOT NULL,
+    prix_type varchar(14) NOT NULL,
     prix_valeur float NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -46,9 +46,9 @@ create table t_prix (
 create table t_ingredients (
     id_ingredient int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     ingredient_nom varchar(60) NOT NULL,
-    ingredient_est_sucre boolean NOT NULL,
-    provenance_est_bio boolean NOT NULL,
-    categorie_type ENUM("Légumes","Fruits","Viandes","Charcuteries","Poissons ","OEufs","Produits laitiers","Lait","Fromages","Matières grasses","Matières grasses d’origine animale","Huiles et margarines","Céréales et dérivés","Légumineuses","Sucres et produits sucrés") NOT NULL,
+    ingredient_est_sucre varchar(5) NOT NULL,
+    provenance_est_bio varchar(3) NOT NULL,
+    categorie_type varchar(25)NOT NULL,
     FK_pays int(11) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -119,32 +119,56 @@ INSERT INTO `restaurant_app`.`t_restaurants` (`restaurant_nom`, `restaurant_type
 INSERT INTO `restaurant_app`.`t_restaurants` (`restaurant_nom`, `restaurant_type`, `FK_pays`) VALUES ('Piano', 'Buffet', '1');
 INSERT INTO `restaurant_app`.`t_restaurants` (`restaurant_nom`, `restaurant_type`, `FK_pays`) VALUES ('L’Ornithorynque', 'Buffet', '15');
 -- Insert Ingrédient 
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Jambon', '0', '0', 'Charcuteries', '1');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Poulet', '0', '0', 'Viandes', '6');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Viande haché boeuf', '0', '0', 'Viandes', '1');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Sucre', '1', '0', 'Sucres et produits sucrés', '6');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Lait', '1', '1', 'Lait', '1');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Saumon', '0', '0', 'Poissons', '16');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Pomme', '1', '1', 'Fruits', '1');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Poire', '1', '1', 'Fruits', '1');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Oeuf', '0', '1', 'Oeufs', '1');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Haricot', '0', '0', 'Légumineuses', '7');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Miel', '1', '0', 'Sucres et produits sucrés', '1');
-INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Chocolat', '1', '0', 'Sucres et produits sucrés', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Jambon', 'salé', 'non', 'Charcuteries', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Poulet', 'salé', 'non', 'Viandes', '6');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Viande haché boeuf', 'salé', 'non', 'Viandes', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Sucre', 'sucré', 'non', 'Sucres et produits sucrés', '6');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Lait', 'sucré', 'oui', 'Lait', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Saumon', 'salé', 'non', 'Poissons', '16');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Pomme', 'sucré', 'oui', 'Fruits', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Poire', 'sucré', 'oui', 'Fruits', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Oeuf', 'salé', 'oui', 'Oeufs', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Haricot', 'salé', 'non', 'Légumineuses', '7');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Miel', 'sucré', 'non', 'Sucres et produits sucrés', '1');
+INSERT INTO `restaurant_app`.`t_ingredients` (`ingredient_nom`, `ingredient_est_sucre`, `provenance_est_bio`, `categorie_type`, `FK_pays`) VALUES ('Chocolat', 'sucré', 'non', 'Sucres et produits sucrés', '1');
 -- Insert Plats 
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('petit salad\'bar', 'entree', '0');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('grand salad\'bar', 'entree', '0');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('salade oceane', 'entree', '0');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('salade crunchy chicken:', 'entree', '0');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Saucisse de veau grillé, légumes rôtis et pomme purée', 'plat', '1');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Sauté de boeuf Choux rouges braisés Pomme purée maison', 'plat', '1');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Gratin de gnocchi aux légumes', 'plat', '1');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Cuisse de poulet confit au citron', 'plat', '1');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Focaccia Chorizo et pesto', 'plat', '1');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Tiramisu', 'dessert', '0');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Tartelette aux fruits du jour', 'dessert', '0');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Verrine gourmande du jour', 'dessert', '0');
-INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('ella’s cheesecake', 'dessert', '0');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('petit salad\'bar', 'entree', 'froid');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('grand salad\'bar', 'entree', 'froid');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('salade oceane', 'entree', 'froid');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('salade crunchy chicken:', 'entree', 'froid');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Saucisse de veau grillé, légumes rôtis et pomme purée', 'plat', 'chaud');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Sauté de boeuf Choux rouges braisés Pomme purée maison', 'plat', 'chaud');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Gratin de gnocchi aux légumes', 'plat', 'chaud');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Cuisse de poulet confit au citron', 'plat', 'chaud');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Focaccia Chorizo et pesto', 'plat', 'chaud');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Tiramisu', 'dessert', 'froid');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Tartelette aux fruits du jour', 'dessert', 'froid');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Verrine gourmande du jour', 'dessert', 'froid');
+INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('ella’s cheesecake', 'dessert', 'froid');
+-- Insert into table particularite
+INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('sans gluten');
+INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('sans lactose');
+INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('végétarien');
+INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('végan');
+INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('sans porc');
+-- Insert into table prix
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Etudiant','8.0');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Etudiant','12.0');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Etudiant','6.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Etudiant','7.0');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Etudiant','9.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Doctorant','13.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Doctorant','12.0');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Doctorant','11.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Doctorant','14.0');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Campus','11.0');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Campus','9.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Campus','10.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Campus','8.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Externe','15.0');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Externe','15.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Externe','17.50');
+INSERT INTO `restaurant_app`.`t_prix` (`prix_type`, `prix_valeur`) VALUES ('Externe','14.50');
 
 -- Insert into table de liaison(plat-particularité)
 INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('1', '1', '1');

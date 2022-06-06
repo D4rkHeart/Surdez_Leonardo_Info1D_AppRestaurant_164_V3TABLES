@@ -1,20 +1,20 @@
 {% extends "base.html" %}
-{% block title %} Ajouter un Plats {% endblock %}
+{% block title %} Ajouter une particularité {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<p>
-				Ajouter un nouveau Plats
+				Ajouter une nouvelle particularités
 			</p>
 			<form action="" method="POST" novalidate>
 				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
 				{{ form.hidden_tag() }}
 				<div class="form-group">
 					<p>
-						{{ form.nom_genre_wtf.label }}<br>
-						{{ form.nom_genre_wtf(size=32) }}<br>
-						{% for error in form.nom_genre_wtf.errors %}
+						{{ form.nom_particularites.label }}<br>
+						{{ form.nom_particularites(size=32) }}<br>
+						{% for error in form.nom_particularites.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>

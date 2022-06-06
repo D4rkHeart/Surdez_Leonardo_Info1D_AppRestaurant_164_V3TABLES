@@ -26,7 +26,7 @@ from APP_FILMS_164.essais_wtf_forms.wtf_forms_demo_select import DemoFormSelectW
     
     But : Effacer(delete) un genre qui a été sélectionné dans le formulaire "Restaurants_afficher.html"
     
-    Remarque :  Dans le champ "nom_pays_delete" du formulaire "Pays/pays_delete.html",
+    Remarque :  Dans le champ "nom_platsdelete" du formulaire "Pays/pays_delete.html",
                 le contrôle de la saisie est désactivée. On doit simplement cliquer sur "DELETE"
 """
 
