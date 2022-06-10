@@ -12,7 +12,7 @@ from wtforms.validators import Regexp
 
 class FormAjouterParticularites(FlaskForm):
     """
-        Dans le formulaire "Particularites_ajouter.html" on impose que le champ soit rempli.
+        Dans le formulaire "Prix_ajouter.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     particularites_ajouter_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"

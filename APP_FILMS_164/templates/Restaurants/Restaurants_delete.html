@@ -38,27 +38,9 @@
 				</table>
 				<div class="form-group">
 					<p>
-						{{ form_delete.nom_restaurants_delete.label }}<br>
-						{{ form_delete.nom_restaurants_delete(size=32, readonly=true) }}<br>
-						{% for error in form_delete.nom_restaurants_delete.errors %}
-							<span style="color: red;">[{{ error }}]</span>
-						{% endfor %}
-					</p>
-				</div>
-                <div class="form-group">
-					<p>
-						{{ form_delete.type_restaurants_delete.label }}<br>
-						{{ form_delete.type_restaurants_delete(size=32, readonly=true) }}<br>
-						{% for error in form_delete.type_restaurants_delete.errors %}
-							<span style="color: red;">[{{ error }}]</span>
-						{% endfor %}
-					</p>
-				</div>
-                <div class="form-group">
-					<p>
-						{{ form_delete.date_restaurants_delete.label }}<br>
-						{{ form_delete.date_restaurants_delete(size=32, readonly=true) }}<br>
-						{% for error in form_delete.date_restaurants_delete.errors %}
+						{{ form_delete.submit_info_restaurants_delete.label }}<br>
+						{{ form_delete.submit_info_restaurants_delete(size= 32, readonly=true) }}<br>
+						{% for error in form_delete.submit_info_restaurants_delete.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>

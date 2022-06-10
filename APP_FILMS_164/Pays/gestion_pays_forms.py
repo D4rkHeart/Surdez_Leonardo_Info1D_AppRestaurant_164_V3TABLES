@@ -1,5 +1,5 @@
 """
-    Fichier : gestion_restaurants_forms.py
+    Fichier : gestion_prix_forms.py
 """
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField

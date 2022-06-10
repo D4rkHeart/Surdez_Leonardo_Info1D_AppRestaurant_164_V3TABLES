@@ -1,5 +1,5 @@
 """Gestion des "routes" FLASK et des données pour les restaurants.
-Fichier : gestion_restaurants_crud.py
+Fichier : gestion_prix_crud.py
 Auteur : OM 2021.03.16
 """
 from pathlib import Path
@@ -221,6 +221,7 @@ def restaurants_delete():
     try:
         print(" on submit ", form_delete.validate_on_submit())
         print("0.7")
+        print(request.method)
         if request.method == "POST" and form_delete.validate_on_submit():
             print("1")
             if form_delete.submit_btn_annuler.data:
@@ -253,39 +254,36 @@ def restaurants_delete():
                 return redirect(url_for('restaurants_afficher', order_by="ASC", id_restaurant_sel=0))
 
         if request.method == "GET":
+            print("0.8")
             valeur_select_dictionnaire = {"value_id_restaurants": id_restaurants_delete}
             print(id_restaurants_delete, type(id_restaurants_delete))
 
 
-            # Requête qui affiche tous les films_restaurantss qui ont le restaurants que l'utilisateur veut effacer
-            str_sql_restaurants_pays_delete = """SELECT id_restaurant, restaurant_nom, restaurant_type FROM t_restaurants 
-                                            WHERE FK_pays = %(value_id_restaurants)s"""
-            print("4")
+            # Requête qui affiche tous les pays qui ont le restaurants que l'utilisateur veut effacer
+            #str_sql_restaurants_pays_delete = """SELECT id_restaurant, restaurant_nom, restaurant_type FROM t_restaurants
+            #                                WHERE FK_pays = %(value_id_restaurants)s"""
+            #print(str_sql_restaurants_pays_delete)
             with DBconnection() as mydb_conn:
-                mydb_conn.execute(str_sql_restaurants_pays_delete, valeur_select_dictionnaire)
-                data_restaurant_attribue_restaurants_delete = mydb_conn.fetchall()
-                print("##########")
-                print("data_restaurant_attribue_restaurants_delete...", data_restaurant_attribue_restaurants_delete)
+                #mydb_conn.execute(str_sql_restaurants_pays_delete, valeur_select_dictionnaire)
+                #data_restaurant_attribue_restaurants_delete = mydb_conn.fetchall()
+                #print("##########")
+                #print("data_restaurant_attribue_restaurants_delete...", data_restaurant_attribue_restaurants_delete)
 
                 # Nécessaire pour mémoriser les données afin d'afficher à nouveau
                 # le formulaire "restaurants/Restaurants_delete.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
                 session['data_restaurant_attribue_restaurants_delete'] = data_restaurant_attribue_restaurants_delete
                 print("5")
                 # Opération sur la BD pour récupérer "id_restaurants" et "nom" de la "t_restaurants"
-                str_sql_id_restaurants = "SELECT id_restaurant, restaurant_nom,restaurant_type FROM t_restaurants WHERE id_restaurant = %(value_id_restaurants)s"
-                print("6")
+                str_sql_id_restaurants = """SELECT id_restaurant, restaurant_nom FROM t_restaurants WHERE id_restaurant = %(value_id_restaurants)s"""
+                print(str_sql_id_restaurants)
                 mydb_conn.execute(str_sql_id_restaurants, valeur_select_dictionnaire)
                 # Une seule valeur est suffisante "fetchone()",
                 # vu qu'il n'y a qu'un seul champ "nom restaurants" pour l'action DELETE
                 data_restaurants_delete = mydb_conn.fetchone()
-            print("7")
+            print(data_restaurants_delete)
             # Afficher la valeur sélectionnée dans le champ du formulaire "Restaurants_delete.html"
-            form_delete.nom_restaurants_delete.data = data_restaurants_delete["restaurant_nom"]
-            print("8")
-            form_delete.type_restaurants_delete.data = data_restaurants_delete["restaurant_type"]
-            print("9")
-            form_delete.date_restaurants_delete.data = data_restaurants_delete["updated_at"]
-            print("10")
+            form_delete.submit_info_restaurants_delete.data = data_restaurants_delete["restaurant_nom"]
+            #form_delete.date_restaurants_delete.data = data_restaurants_delete["updated_at"]
             # Le bouton pour l'action "DELETE" dans le form. "Restaurants_delete.html" est caché.
             btn_submit_del = False
 

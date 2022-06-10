@@ -5,6 +5,7 @@ import sys
 
 from environs import Env
 from flask import Flask
+from flask import render_template
 
 try:
     try:
@@ -39,22 +40,21 @@ try:
         Dans l'application les lignes ci-dessous doivent se trouver ici... soit après l'instanciation de la classe "Flask"
     """
     from APP_FILMS_164.database import database_tools
-    from APP_FILMS_164.essais_wtf_forms import gestion_essai_wtf
-    from APP_FILMS_164.essais_wtf_forms import gestion_wtf_forms_demo_select
-
     from APP_FILMS_164.Pays import gestion_pays_crud
     from APP_FILMS_164.Restaurants import gestion_restaurants_crud
     from APP_FILMS_164.Plats import gestion_plats_crud
     from APP_FILMS_164.Ingredients import gestion_ingredients_crud
     from APP_FILMS_164.Particularites import gestion_particularites_crud
+    from APP_FILMS_164.Prix import gestion_prix_crud
+    from APP_FILMS_164.Plats_particularites import gestion_plats_particularites_crud
 
-    from APP_FILMS_164.demos_om_164 import routes_demos
-
-    from APP_FILMS_164.films_genres import gestion_films_genres_crud
     from APP_FILMS_164.erreurs import msg_avertissements
 
-    from APP_FILMS_164.films import gestion_films_crud
-    from APP_FILMS_164.films import gestion_films_wtf_forms
+    #Crée la route d'accès à la home page
+    @app.route('/')
+    @app.route('/homepage')
+    def mapageprincipale():
+        return render_template("home.html")
 
 except Exception as Exception_init_app_films_164:
     print(f"4567756434 Une erreur est survenue {type(Exception_init_app_films_164)} dans"

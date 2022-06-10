@@ -1,5 +1,5 @@
 """Gestion des "routes" FLASK et des données pour les Plats.
-Fichier : gestion_restaurants_crud.py
+Fichier : gestion_prix_crud.py
 Auteur : OM 2021.03.16
 """
 from pathlib import Path
@@ -133,7 +133,7 @@ def ingredients_ajouter():
 def ingredients_update():
 
     # L'utilisateur vient de cliquer sur le bouton "EDIT". Récupère la valeur de "id_ingredient"
-    id_ingredients_update = request.values['id_ingredient_btn_edit_html']
+    id_ingredients_update = request.values['l']
     # Objet formulaire pour l'UPDATE
     form_update = FormUpdateIngredients()
     try:

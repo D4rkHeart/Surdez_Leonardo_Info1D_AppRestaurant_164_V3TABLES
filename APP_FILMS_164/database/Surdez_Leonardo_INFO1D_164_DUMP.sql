@@ -83,7 +83,7 @@ CREATE TABLE t_plats_contients_ingredients (
 );
 
 -- Insert Into --
--- Insert nom
+-- Insert pays
 INSERT INTO `restaurant_app`.`t_pays` (`nom`) VALUES ('Suisse');
 INSERT INTO `restaurant_app`.`t_pays` (`nom`) VALUES ('Italie');
 INSERT INTO `restaurant_app`.`t_pays` (`nom`) VALUES ('USA');
@@ -145,7 +145,7 @@ INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud
 INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Tartelette aux fruits du jour', 'dessert', 'froid');
 INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('Verrine gourmande du jour', 'dessert', 'froid');
 INSERT INTO `restaurant_app`.`t_plats` (`plat_nom`, `plat_type`, `plat_est_chaud`) VALUES ('ella’s cheesecake', 'dessert', 'froid');
--- Insert into table particularite
+-- Insert into table particularité
 INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('sans gluten');
 INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('sans lactose');
 INSERT INTO `restaurant_app`.`t_particularites` (`particularite_genre`) VALUES ('végétarien');
@@ -200,3 +200,16 @@ INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, 
 INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('27', '13', '2');
 INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('28', '13', '3');
 INSERT INTO `restaurant_app`.`t_plats_particularites` (`id_plat_particularite`, `FK_plat`, `FK_particularite`) VALUES ('29', '13', '5');
+
+CREATE TABLE t_plats_coutent_prix (
+  id_plat_coute_prix int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  FK_plat int(11) NOT NULL,
+  FK_prix int(11) NOT NULL
+);
+INSERT INTO `restaurant_app`.`t_plats_coutent_prix` (`id_plat_coute_prix`, `FK_plat`, `FK_prix`) VALUES ('29', '13', '5');
+
+CREATE TABLE t_plats_contients_ingredients (
+  id_plat_contient_ingredient int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  FK_plat int(11) NOT NULL,
+  FK_ingredient int(11) NOT NULL
+);

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %} Afficher les particularités contenue dans les ingrédients {% endblock %}
+{% block title %} Afficher les prix {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<p>
-				Particularité à disposition.
+				Prix à disposition.
 			</p>
             <table class="table table-bordered table-sm">
             {% if data %}
@@ -15,37 +15,41 @@
                             Id
                         </th>
                         <th class="align-middle">
-                            Particularités
+                            Type
+                        </th>
+                        <th class="align-middle">
+                            Prix
                         </th>
                         <th class="align-middle">
                             Date de modification
                         </th>
-                        <th class="align-middle">
-
-                        </th>
                     </tr>
                 </thead>
             {% endif %}
+
             {% for row in data %}
 				<tbody>
 					<tr>
 						<td class="align-middle">
-							{{ row.id_particularite }}
+							{{ row.id_prix }}
 						</td>
 						<td class="align-middle">
-							{{ row.particularite_genre }}
+							{{ row.prix_type }}
 						</td>
                         <td class="align-middle">
-							{{ row.updated_at }}
+							{{ row.prix_valeur}}
+						</td>
+                        <td class="align-middle">
+							{{ row.updated_at}}
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-primary" href="{{ url_for('particularites_ajouter') }}" role="button">Ajouter</a>
+							<a class="btn btn-primary" href="{{ url_for('prix_ajouter') }}" role="button">Ajouter</a>
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-warning" href="{{ url_for('particularites_update', id_particularite_btn_edit_html=row.id_particularite) }}" role="button">Edit</a>
+							<a class="btn btn-warning" href="{{ url_for('prix_update', id_prix_btn_edit_html=row.id_prix) }}" role="button">Edit</a>
 						</td>
 						<td class="text-center" class="align-middle">
-							<a class="btn btn-danger" href="{{ url_for('particularites_delete', id_particularite_btn_delete_html=row.id_particularite) }}" role="button">Delete</a>
+							<a class="btn btn-danger" href="{{ url_for('prix_delete', id_prix_btn_delete_html=row.id_prix) }}" role="button">Delete</a>
 						</td>
 					</tr>
 				</tbody>
@@ -56,7 +60,7 @@
 							Aucune particularité(s).
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ url_for('particularites_ajouter') }}" role="button">Ajouter</a>
+							<a class="btn btn-primary" href="{{ url_for('prix_ajouter') }}" role="button">Ajouter</a>
 						</td>
 					</tr>
 				</tbody>

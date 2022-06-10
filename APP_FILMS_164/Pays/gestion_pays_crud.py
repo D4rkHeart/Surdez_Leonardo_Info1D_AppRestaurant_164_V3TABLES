@@ -1,5 +1,5 @@
 """Gestion des "routes" FLASK et des données pour les Pays.
-Fichier : gestion_restaurants_crud.py
+Fichier : gestion_prix_crud.py
 Auteur : OM 2021.03.16
 """
 from pathlib import Path

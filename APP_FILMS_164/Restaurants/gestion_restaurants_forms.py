@@ -1,5 +1,5 @@
 """
-    Fichier : gestion_restaurants_forms.py
+    Fichier : gestion_prix_forms.py
 """
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField
@@ -70,7 +70,7 @@ class FormDeleteRestaurants(FlaskForm):
         submit_btn_conf_del : Bouton de confirmation pour effacer un "genre".
         submit_btn_annuler : Bouton qui permet d'afficher la table "t_genre".
     """
-    data_restaurants_delete = StringField("Effacer ce restaurants")
+    submit_info_restaurants_delete = StringField("Effacer ce restaurants")
     submit_btn_del = SubmitField("Effacer ce restaurants")
     submit_btn_conf_del = SubmitField("Êtes-vous sur de vouloir l'effacer ?")
     submit_btn_annuler = SubmitField("Annuler")
